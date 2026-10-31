@@ -17,7 +17,7 @@ runtime:
       code: |-
         test("Query param should appear in the response", function() {
           const message = req.getUrl().split("?")[1].split("=")[1];
-          expect(res.getBody().message).to.equal(message);
+          expect(res.getBody().message).to.equal(decodeURI(message));
         });
   assertions:
     - expression: res.status
